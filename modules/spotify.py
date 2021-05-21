@@ -17,7 +17,7 @@ class SpotifyMethod(commands.Cog):
             await ctx.send(f"{user.name} is not listening to Spotify")
             return
         songlink = spot.track_id
-        embedspotify = discord.Embed(title=f"{user.name} is listening to:", color=0x1eba10)
+        embedspotify = discord.Embed(title=f"{user.name} is listening to:", color=0x1eba10) 
         embedspotify.add_field(name="Song", value=spot.title, inline=False)
         embedspotify.add_field(name="Artist", value=spot.artist, inline=False)
         embedspotify.add_field(name="Album", value=spot.album, inline=False)
