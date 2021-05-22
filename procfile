@@ -1,1 +1,1 @@
-worker: python chinobot.py
+python chinobot.py
