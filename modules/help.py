@@ -15,6 +15,7 @@ class Help(commands.Cog):
             elif args == '8ball': embed_message = embed_8ball()
             elif args == 'coinflip': embed_message = embed_coinflip()
             elif args == 'help': embed_message = embed_help()
+            elif args == 'github': embed_message = embed_github()
             else:
                 await ctx.send("I can't find the command " + "`" + args + "`"
                 + "\nTry `c.help`!")
@@ -107,6 +108,20 @@ def embed_help():
         title="`help` command",
         color=0x31e8eb,
         description="Returns a list of my comman.. wait a second, don't you already know this?"
+    )
+    return embed_message
+
+def embed_github():
+    embed_message = discord.Embed(
+        title="`github` command",
+        color=0x31e8eb,
+        description="Returns the link to the ChinoBot GitHub repository."
+    )
+    embed_message.set_footer(text="LEGEND: [] = Optional and <> = Required")
+    embed_message.add_field(
+        name="Syntax:",
+        value="`c.github`",
+        inline=False
     )
     return embed_message
 

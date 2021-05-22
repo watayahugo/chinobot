@@ -5,7 +5,7 @@ A basic bot to serve my personal Discord server, as well as functioning
 as my own sandbox. Capable of role assignment and other miscellaneous commands
 and features to coincide with my personal server.
 ----------
-1.00
+Ver 0.210522
 """
 import os
 from os.path import join, dirname
@@ -46,15 +46,19 @@ async def on_command_error(ctx, error):
     if isinstance(error, commands.MemberNotFound):
         await ctx.send("I couldn't find a user with that name. Try tagging them instead?")
     else: 
-        await ctx.send("Uh oh! Something terrible happened.\n"
-        + "Check the console for more information.")
         print(error)
 
 # GITHUB COMMAND
 @bot.command()
 async def github(ctx):
-    #TODO: Implement this
-    await ctx.send("I'm still working on this command!")
+    embed_message = discord.Embed(
+        title = "ChinoBot GitHub Repo",
+        url = "https://github.com/tatsujinda/chinobot",
+        description = "A basic bot written in Python to serve my personal Discord server, as well as functioning as my own sandbox. " 
+        + "Capable of role assignment and other miscellaneous commands and features to coincide with my personal server."
+    )
+    embed_message.set_image(url="https://user-images.githubusercontent.com/12385776/119098969-6c902480-b9e4-11eb-9b7a-8e9a087854c8.jpg")
+    await ctx.send(embed=embed_message)
 
 # TOKEN FROM `token.env`
 bot.run(TOKEN)
