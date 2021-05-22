@@ -6,16 +6,23 @@ class Simple(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(
-        help = "Flips a coin (heads or tails)",
-        brief = "Flips a coin"
-    )
+    @commands.command()
     @commands.guild_only()
     async def coinflip(self, ctx):
         user: str = ctx.author
         flip = random.choice(['Heads', 'Tails'])
         message = discord.Embed(title="It's " + flip + "!", color=0x29D0F4)
         await ctx.send(embed=message)
+
+    @commands.command()
+    @commands.guild_only()
+    async def roll(self, ctx, number: int = None):
+        if number is None: number = 100
+        random_number = random.randint(0, number)
+        embed_message = discord.Embed(
+            description = ctx.author.name + " rolled " + str(random_number) + " point(s)!"
+        )
+        await ctx.send(embed=embed_message)
 
     @commands.command(
         name = "8ball"

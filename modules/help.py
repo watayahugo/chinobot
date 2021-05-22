@@ -16,6 +16,7 @@ class Help(commands.Cog):
             elif args == 'coinflip': embed_message = embed_coinflip()
             elif args == 'help': embed_message = embed_help()
             elif args == 'github': embed_message = embed_github()
+            elif args == 'roll': embed_message = embed_roll()
             else:
                 await ctx.send("I can't find the command " + "`" + args + "`"
                 + "\nTry `c.help`!")
@@ -44,6 +45,9 @@ class Help(commands.Cog):
             ).add_field(
                 name="github",
                 value="Sends link of the ChinoBot repo."
+            ).add_field(
+                name="roll",
+                value="Rolls a random number."
             )
             await ctx.reply("I sent you a DM with all of my commands!")
             await user.send(embed=embed_message)
@@ -122,6 +126,24 @@ def embed_github():
         name="Syntax:",
         value="`c.github`",
         inline=False
+    )
+    return embed_message
+
+def embed_roll():
+    embed_message = discord.Embed(
+        title="`roll` command",
+        color=0x31e8eb,
+        description="Rolls a random integer from 0 to the specified integer, inclusive."
+        + "\nIf number is not specified, rolls from 0 to 100 inclusive by default."
+    )
+    embed_message.set_footer(text="LEGEND: [] = Optional and <> = Required")
+    embed_message.add_field(
+        name="Syntax:",
+        value="`c.roll [number]`",
+        inline=False
+    ).add_field(
+        name="Example:",
+        value="`c.roll 200`"
     )
     return embed_message
 
