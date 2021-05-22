@@ -18,6 +18,11 @@ class Simple(commands.Cog):
         await ctx.send(embed=message)
 
     @commands.command(
+    )
+    async def roll(self, ctx, number:int = None):
+        return
+    
+    @commands.command(
         name = "8ball"
     )
     @commands.guild_only()
