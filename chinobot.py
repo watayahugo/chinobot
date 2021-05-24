@@ -24,7 +24,7 @@ MODULES = [
 
 # INITIAL SETUP:
 intents = discord.Intents().all()
-bot = commands.Bot(command_prefix="cs.", intents = intents)
+bot = commands.Bot(command_prefix="c.", intents = intents)
 bot.remove_command("help")
 @bot.event
 async def on_ready():
