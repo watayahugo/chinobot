@@ -17,6 +17,7 @@ class Help(commands.Cog):
             elif args == 'help': embed_message = embed_help()
             elif args == 'github': embed_message = embed_github()
             elif args == 'roll': embed_message = embed_roll()
+            elif args == 'echo': embed_message = embed_echo()
             else:
                 await ctx.send("I can't find the command " + "`" + args + "`"
                 + "\nTry `c.help`!")
@@ -48,6 +49,9 @@ class Help(commands.Cog):
             ).add_field(
                 name="roll",
                 value="Rolls a random number."
+            ).add_field(
+                name="echo",
+                value="Repeats the content of your message."
             )
             await ctx.reply("I sent you a DM with all of my commands!")
             await user.send(embed=embed_message)
@@ -69,7 +73,7 @@ def embed_spotify():
         inline=False
     ).add_field(
         name="Example:",
-        value="`c.spotify tatsujin`\n`c.spotify @tatsujin`",
+        value="c.spotify tatsujin`\n`c.spotify @tatsujin`",
         inline=False
     )
     return embed_message
@@ -144,6 +148,23 @@ def embed_roll():
     ).add_field(
         name="Example:",
         value="`c.roll 200`"
+    )
+    return embed_message
+
+def embed_echo():
+    embed_message = discord.Embed(
+        title="`echo` command",
+        color=0x31e8eb,
+        description="Repeats the content of the command after calling."
+    )
+    embed_message.set_footer(text="LEGEND: [] = Optional and <> = Required")
+    embed_message.add_field(
+        name="Syntax:",
+        value="`c.echo <content>`",
+        inline=False
+    ).add_field(
+        name="Example:",
+        value="`c.echo Repeat this message!"
     )
     return embed_message
 

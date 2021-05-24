@@ -64,5 +64,12 @@ class Simple(commands.Cog):
             message.description = content
         await ctx.reply(embed=message)
 
+    @commands.command()
+    @commands.guild_only()
+    async def echo(self, ctx, *, content: str = None):
+        if content is None:
+            await ctx.send("You need to specify a message argument, silly.")
+        await ctx.send(content)
+
 def setup(bot):
     bot.add_cog(Simple(bot))
