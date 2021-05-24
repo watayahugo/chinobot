@@ -68,7 +68,6 @@ async def on_message(ctx):
         embed_message = discord.Embed()
         embed_message.set_image(url = "https://i.ibb.co/VpBTq0R/JermaSus.jpg")
         await ctx.channel.send(embed=embed_message)
-    await bot.process_commands(ctx)
 
 # TOKEN FROM `token.env`
 bot.run(TOKEN)
