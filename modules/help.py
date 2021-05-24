@@ -164,7 +164,7 @@ def embed_echo():
         inline=False
     ).add_field(
         name="Example:",
-        value="`c.echo Repeat this message!"
+        value="`c.echo Repeat this message!`"
     )
     return embed_message
 
