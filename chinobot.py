@@ -24,7 +24,7 @@ MODULES = [
 
 # INITIAL SETUP:
 intents = discord.Intents().all()
-bot = commands.Bot(command_prefix="c.", intents = intents)
+bot = commands.Bot(command_prefix="cs.", intents = intents)
 bot.remove_command("help")
 @bot.event
 async def on_ready():
@@ -68,6 +68,7 @@ async def on_message(ctx):
         embed_message = discord.Embed()
         embed_message.set_image(url = "https://i.ibb.co/VpBTq0R/JermaSus.jpg")
         await ctx.channel.send(embed=embed_message)
+    await bot.process_commands(ctx)
 
 # TOKEN FROM `token.env`
 bot.run(TOKEN)
