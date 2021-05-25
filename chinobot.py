@@ -60,15 +60,5 @@ async def github(ctx):
     embed_message.set_image(url="https://user-images.githubusercontent.com/12385776/119098969-6c902480-b9e4-11eb-9b7a-8e9a087854c8.jpg")
     await ctx.send(embed=embed_message)
 
-@bot.event
-async def on_message(ctx):
-    msg: str = ctx.content
-    msg = msg.lower()
-    if "sus" in msg:
-        embed_message = discord.Embed()
-        embed_message.set_image(url = "https://i.ibb.co/VpBTq0R/JermaSus.jpg")
-        await ctx.channel.send(embed=embed_message)
-    await bot.process_commands(ctx)
-
 # TOKEN FROM `token.env`
 bot.run(TOKEN)
