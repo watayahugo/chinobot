@@ -7,6 +7,8 @@ IDENTIFICATION = {
     'VALORANT_EMOJI_ID': 811018181257723956, 'VALORANT_ROLE_ID': 811010939213054023,
     'CSGO_EMOJI_ID': 811018094881144862, 'CSGO_ROLE_ID': 811010887858913379,
     'EFT_EMOJI_ID': 811018504664252486, 'EFT_ROLE_ID': 811010850462629898,
+    'MINECRAFT_EMOJI_ID': 851574163810549801, 'MINECRAFT_ROLE_ID': 851570394205126686,
+    'TERRARIA_EMOJI_ID': 851577006259961857, 'TERRARIA_ROLE_ID': 851570613051064360
 }
 CHAT_ID = 811017297430184006
 
@@ -38,6 +40,12 @@ class Roles(commands.Cog):
             elif payload.emoji.id == IDENTIFICATION.get('EFT_EMOJI_ID'): #eft role
                 role = discord.utils.get(member.guild.roles, id=IDENTIFICATION.get('EFT_ROLE_ID'))
                 role_str = "Escape from Tarkov"
+            elif payload.emoji.id == IDENTIFICATION.get('MINECRAFT_EMOJI_ID'): # minecraft role
+                role = discord.utils.get(member.guild.roles, id=IDENTIFICATION.get('MINECRAFT_ROLE_ID'))
+                role_str = "Minecraft"
+            elif payload.emoji.id == IDENTIFICATION.get('TERRARIA_EMOJI_ID'): # terraria role
+                role = discord.utils.get(member.guild.roles, id=IDENTIFICATION.get('TERRARIA_ROLE_ID'))
+                role_str = "Terraria"
             else: return
 
             embed_message.description = "I've assigned you to the " + "**" + role_str + "**" + " role. " + "You should now have access to the " + role_str + " chat on DICKSWORD."
@@ -71,6 +79,12 @@ class Roles(commands.Cog):
             if payload.emoji.id == IDENTIFICATION.get('EFT_EMOJI_ID'): #eft role
                 role = discord.utils.get(member.guild.roles, id=IDENTIFICATION.get('EFT_ROLE_ID'))
                 role_str = "Escape from Tarkov"
+            if payload.emoji.id == IDENTIFICATION.get('MINECRAFT_EMOJI_ID'): # minecraft role
+                role = discord.utils.get(member.guild.roles, id=IDENTIFICATION.get('MINECRAFT_ROLE_ID'))
+                role_str = "Minecraft"
+            if payload.emoji.id == IDENTIFICATION.get('TERRARIA_EMOJI_ID'): # terraria role
+                role = discord.utils.get(member.guild.roles, id=IDENTIFICATION.get('TERRARIA_ROLE_ID'))
+                role_str = "Terraria"
             
             embed_message.description = "I've unassigned you to the " + "**" + role_str + "**" + " role."
             await member.remove_roles(role)
