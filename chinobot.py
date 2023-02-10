@@ -13,6 +13,7 @@ MODULES = ["modules.spotify", "modules.roles", "modules.simple", "modules.help"]
 # INITIAL SETUP:
 intents = discord.Intents().all()
 bot = commands.Bot(command_prefix="c.", intents=intents)
+bot.remove_command("help")
 
 
 @bot.event
@@ -21,6 +22,8 @@ async def on_ready():
         status=discord.Status.online,
         activity=discord.Game("ご注文はうさぎですか (*・ω・)ﾉ\nMade by tatsujin#1007"),
     )
+    for extension in MODULES:
+        bot.load_extension(extension)
     print("ChinoBot is ready to go!")
 
 
