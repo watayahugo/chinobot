@@ -13,7 +13,6 @@ MODULES = ["modules.spotify", "modules.roles", "modules.simple", "modules.help"]
 # INITIAL SETUP:
 intents = discord.Intents().all()
 bot = commands.Bot(command_prefix="c.", intents=intents)
-bot.remove_command("help")
 
 
 @bot.event
